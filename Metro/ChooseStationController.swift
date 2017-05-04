@@ -105,7 +105,7 @@ class ChooseStationController: UITableViewController{
         let notEmpty = !searchController.searchBar.text!.isEmpty
         let activeSearch = searchController.isActive
         
-        guard activeSearch && notEmpty && !nearStations.isEmpty else {
+        guard activeSearch || notEmpty || nearStations.isEmpty else {
             return array.count + 1
         }
         
@@ -116,7 +116,7 @@ class ChooseStationController: UITableViewController{
         let notEmpty = !searchController.searchBar.text!.isEmpty
         let activeSearch = searchController.isActive
         
-        guard activeSearch && notEmpty && !nearStations.isEmpty else {
+        guard activeSearch || notEmpty || nearStations.isEmpty else {
             return (section == 0) ? nearStations.count : array[section - 1].stations.count
         }
         
@@ -131,7 +131,7 @@ class ChooseStationController: UITableViewController{
         let notEmpty = !searchController.searchBar.text!.isEmpty
         let activeSearch = searchController.isActive
         
-        guard activeSearch && notEmpty && !nearStations.isEmpty else {
+        guard activeSearch || notEmpty || nearStations.isEmpty else {
             switch section {
             case 0 where delegate.language == .English: return "Nearest"
             case 0 where delegate.language == .Russian: return "Ближайшие"
@@ -152,7 +152,7 @@ class ChooseStationController: UITableViewController{
         let notEmpty = !searchController.searchBar.text!.isEmpty
         let activeSearch = searchController.isActive
         
-        guard notEmpty && activeSearch && !nearStations.isEmpty else {
+        guard  activeSearch || notEmpty || nearStations.isEmpty else {
             switch indexPath.section {
             case 0:
                 cell = tableView.dequeueReusableCell(withIdentifier: "NCell", for: indexPath)
@@ -160,13 +160,13 @@ class ChooseStationController: UITableViewController{
                 
                 let gradient: CAGradientLayer = CAGradientLayer()
                 gradient.frame.size = cell.frame.size
-                gradient.colors = [#colorLiteral(red: 0.217913813, green: 1, blue: 0.9516199302, alpha: 1) .cgColor, #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1).cgColor]
+                gradient.colors = [#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1) .cgColor, #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1).cgColor]
                 let x = UIView()
                 x.layer.addSublayer(gradient)
                 cell.backgroundView = x
                 
             default:
-                let line = (activeSearch && notEmpty ? filteredArray : array)[indexPath.section - 1]
+                let line = (activeSearch || notEmpty || nearStations.isEmpty ? filteredArray : array)[indexPath.section - 1]
                 cell = tableView.dequeueReusableCell(withIdentifier: "SCell", for: indexPath)
                 (cell as! StationCell).set(lineIcon: line.line, stationName: line.stations[indexPath.row])
                 cell.backgroundColor = colors[indexPath.section - 1]
@@ -174,7 +174,7 @@ class ChooseStationController: UITableViewController{
             return cell
         }
         
-        let line = (activeSearch && notEmpty ? filteredArray : array)[indexPath.section]
+        let line = (activeSearch || notEmpty || nearStations.isEmpty ? filteredArray : array)[indexPath.section]
         cell = tableView.dequeueReusableCell(withIdentifier: "SCell", for: indexPath)
         (cell as! StationCell).set(lineIcon: line.line, stationName: line.stations[indexPath.row])
         cell.backgroundColor = colors[indexPath.section]
@@ -188,7 +188,7 @@ class ChooseStationController: UITableViewController{
         let activeSearch = searchController.isActive
         
         let stationName: String
-        if !notEmpty || !activeSearch || !nearStations.isEmpty {
+        if !notEmpty && !activeSearch && !nearStations.isEmpty {
             stationName = (indexPath.section == 0 ?
                 nearStations[indexPath.row].station :
                 array[indexPath.section - 1].stations[indexPath.row])

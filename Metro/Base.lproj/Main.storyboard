@@ -14,7 +14,7 @@
         <!--Settings Table View Controller-->
         <scene sceneID="TBb-H3-9NE">
             <objects>
-                <tableViewController id="T6t-sJ-DBo" customClass="SettingsTableViewController" customModule="KyivMetro" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="T6t-sJ-DBo" customClass="SettingsTableViewController" customModule="Metro" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="dzc-vB-pOa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +90,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KyivMetro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Metro" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -221,7 +221,7 @@
         <!--Choose Station Controller-->
         <scene sceneID="QMU-fd-aKh">
             <objects>
-                <tableViewController id="ttv-o7-IV9" customClass="ChooseStationController" customModule="KyivMetro" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ttv-o7-IV9" customClass="ChooseStationController" customModule="Metro" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="aFs-JS-5Z1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,7 +233,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NCell" rowHeight="50" id="lDW-Ta-4iv" customClass="NearCell" customModule="KyivMetro" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NCell" rowHeight="50" id="lDW-Ta-4iv" customClass="NearCell" customModule="Metro" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lDW-Ta-4iv" id="LpP-qd-Ejf">
@@ -244,26 +244,26 @@
                                             <rect key="frame" x="5" y="0.0" width="310" height="49.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZp-xf-JHO">
-                                                    <rect key="frame" x="0.0" y="18" width="13.5" height="13.5"/>
+                                                    <rect key="frame" x="0.0" y="13" width="23.5" height="23.5"/>
                                                     <color key="backgroundColor" red="0.2392156869" green="0.67450982329999998" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="JZp-xf-JHO" secondAttribute="height" multiplier="1:1" id="pW5-gu-6vb"/>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYK-5w-yHu">
-                                                    <rect key="frame" x="23.5" y="5" width="286.5" height="39.5"/>
+                                                    <rect key="frame" x="33.5" y="5" width="276.5" height="39.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Station" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSI-1Z-VQb">
                                                             <rect key="frame" x="0.0" y="0.0" width="220" height="39.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="220" id="APg-oP-JiL"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7zm-VR-Nwd">
-                                                            <rect key="frame" x="220" y="0.0" width="66.5" height="39.5"/>
+                                                            <rect key="frame" x="220" y="0.0" width="56.5" height="39.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -273,8 +273,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="sYK-5w-yHu" secondAttribute="bottom" constant="5" id="2CS-T2-49X"/>
-                                                <constraint firstAttribute="bottom" secondItem="JZp-xf-JHO" secondAttribute="bottom" constant="18" id="KsR-Uu-1f5"/>
-                                                <constraint firstItem="JZp-xf-JHO" firstAttribute="top" secondItem="8PD-SD-eP8" secondAttribute="top" constant="18" id="Laa-oO-jBK"/>
+                                                <constraint firstAttribute="bottom" secondItem="JZp-xf-JHO" secondAttribute="bottom" constant="13" id="KsR-Uu-1f5"/>
+                                                <constraint firstItem="JZp-xf-JHO" firstAttribute="top" secondItem="8PD-SD-eP8" secondAttribute="top" constant="13" id="Laa-oO-jBK"/>
                                                 <constraint firstItem="sYK-5w-yHu" firstAttribute="top" secondItem="8PD-SD-eP8" secondAttribute="top" constant="5" id="xWL-2T-MA6"/>
                                             </constraints>
                                         </stackView>
@@ -293,7 +293,7 @@
                                     <outlet property="stationName" destination="bSI-1Z-VQb" id="vEL-50-OAt"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SCell" rowHeight="50" id="LO4-3A-z5N" customClass="StationCell" customModule="KyivMetro" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SCell" rowHeight="50" id="LO4-3A-z5N" customClass="StationCell" customModule="Metro" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="122" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LO4-3A-z5N" id="fUp-v1-Ybv">
@@ -375,13 +375,13 @@
         <!--Paths Table View Controller-->
         <scene sceneID="fEa-of-0fJ">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="axh-bv-ZRJ" customClass="PathsTableViewController" customModule="KyivMetro" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="axh-bv-ZRJ" customClass="PathsTableViewController" customModule="Metro" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="35" sectionHeaderHeight="28" sectionFooterHeight="28" id="lLt-GM-2vc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SCell" rowHeight="35" id="Qmg-eD-9Px" customClass="StationCell" customModule="KyivMetro" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SCell" rowHeight="35" id="Qmg-eD-9Px" customClass="StationCell" customModule="Metro" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="35"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qmg-eD-9Px" id="Tm3-B2-2yg">

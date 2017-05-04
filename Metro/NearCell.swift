@@ -18,7 +18,7 @@ class NearCell: UITableViewCell {
         distanceInKm.text = String(round(distance * 100) / 100) + " km"
         stationName.text = name
         icon.layer.cornerRadius = icon.bounds.size.width / 2 // Circle
-        icon.layer.borderWidth = 1;
+        icon.layer.borderWidth = 2;
         icon.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
         icon.flash()
     }

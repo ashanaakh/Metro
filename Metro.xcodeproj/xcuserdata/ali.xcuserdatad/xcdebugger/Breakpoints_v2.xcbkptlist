@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Metro/ChooseStationController.swift"
-            timestampString = "515593154.175621"
+            timestampString = "515601955.957611"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "255"
@@ -26,12 +26,12 @@
                   moduleName = "Metro"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ali/Developer/iOS%20Hobby/Metro/Metro/ChooseStationController.swift"
-                  timestampString = "515593647.252275"
+                  timestampString = "515603416.545536"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "256"
                   endingLineNumber = "256"
-                  offsetFromSymbolStart = "144">
+                  offsetFromSymbolStart = "151">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,12 +41,60 @@
                   moduleName = "Metro"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ali/Developer/iOS%20Hobby/Metro/Metro/ChooseStationController.swift"
-                  timestampString = "515593647.258071"
+                  timestampString = "515603416.548452"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "257"
                   endingLineNumber = "257"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Metro/ChooseStationController.swift"
+            timestampString = "515603379.04515"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Metro.ChooseStationController.locationManager (__ObjC.CLLocationManager, didUpdateLocations : Swift.Array&lt;__ObjC.CLLocation&gt;) -&gt; ()"
+                  moduleName = "Metro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ali/Developer/iOS%20Hobby/Metro/Metro/ChooseStationController.swift"
+                  timestampString = "515603416.568512"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "259"
+                  endingLineNumber = "259"
+                  offsetFromSymbolStart = "1013">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Metro.ChooseStationController.(locationManager (__ObjC.CLLocationManager, didUpdateLocations : Swift.Array&lt;__ObjC.CLLocation&gt;) -&gt; ()).(closure #4)"
+                  moduleName = "Metro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ali/Developer/iOS%20Hobby/Metro/Metro/ChooseStationController.swift"
+                  timestampString = "515603416.571105"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "259"
+                  endingLineNumber = "259"
+                  offsetFromSymbolStart = "28">
                </Location>
             </Locations>
          </BreakpointContent>

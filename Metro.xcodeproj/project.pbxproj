@@ -93,20 +93,11 @@
 		41CCD3F31EBB4C0900AD51FB /* Metro */ = {
 			isa = PBXGroup;
 			children = (
-				41CCD4261EBB55DD00AD51FB /* Stations.json */,
-				41CCD4271EBB55DD00AD51FB /* Graph.json */,
-				41CCD4161EBB4CF400AD51FB /* StationCell.swift */,
-				41CCD4171EBB4CF400AD51FB /* NearCell.swift */,
-				41CCD4181EBB4CF400AD51FB /* SettingsTableViewController.swift */,
-				41CCD4191EBB4CF400AD51FB /* PathsTableViewController.swift */,
-				41CCD41A1EBB4CF400AD51FB /* Model.swift */,
-				41CCD41B1EBB4CF400AD51FB /* ChooseStationController.swift */,
-				41CCD3F41EBB4C0900AD51FB /* AppDelegate.swift */,
-				41CCD3F61EBB4C0900AD51FB /* ViewController.swift */,
+				41CCD42A1EBB70FC00AD51FB /* Resource */,
+				41CCD42B1EBB710700AD51FB /* Cells */,
+				41CCD42C1EBB711D00AD51FB /* Views */,
+				41CCD42D1EBB713600AD51FB /* Supporting Files */,
 				41CCD3F81EBB4C0900AD51FB /* Main.storyboard */,
-				41CCD3FB1EBB4C0900AD51FB /* Assets.xcassets */,
-				41CCD3FD1EBB4C0900AD51FB /* LaunchScreen.storyboard */,
-				41CCD4001EBB4C0900AD51FB /* Info.plist */,
 			);
 			path = Metro;
 			sourceTree = "<group>";
@@ -118,6 +109,47 @@
 				41CCD40B1EBB4C0900AD51FB /* Info.plist */,
 			);
 			path = MetroTests;
+			sourceTree = "<group>";
+		};
+		41CCD42A1EBB70FC00AD51FB /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				41CCD4261EBB55DD00AD51FB /* Stations.json */,
+				41CCD4271EBB55DD00AD51FB /* Graph.json */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		41CCD42B1EBB710700AD51FB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				41CCD4161EBB4CF400AD51FB /* StationCell.swift */,
+				41CCD4171EBB4CF400AD51FB /* NearCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		41CCD42C1EBB711D00AD51FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				41CCD4181EBB4CF400AD51FB /* SettingsTableViewController.swift */,
+				41CCD4191EBB4CF400AD51FB /* PathsTableViewController.swift */,
+				41CCD41B1EBB4CF400AD51FB /* ChooseStationController.swift */,
+				41CCD3F61EBB4C0900AD51FB /* ViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		41CCD42D1EBB713600AD51FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				41CCD41A1EBB4CF400AD51FB /* Model.swift */,
+				41CCD3FB1EBB4C0900AD51FB /* Assets.xcassets */,
+				41CCD3F41EBB4C0900AD51FB /* AppDelegate.swift */,
+				41CCD3FD1EBB4C0900AD51FB /* LaunchScreen.storyboard */,
+				41CCD4001EBB4C0900AD51FB /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
