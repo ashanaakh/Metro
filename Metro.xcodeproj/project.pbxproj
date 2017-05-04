@@ -98,6 +98,7 @@
 				41CCD42C1EBB711D00AD51FB /* Views */,
 				41CCD42D1EBB713600AD51FB /* Supporting Files */,
 				41CCD3F81EBB4C0900AD51FB /* Main.storyboard */,
+				41CCD41A1EBB4CF400AD51FB /* Model.swift */,
 			);
 			path = Metro;
 			sourceTree = "<group>";
@@ -143,7 +144,6 @@
 		41CCD42D1EBB713600AD51FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				41CCD41A1EBB4CF400AD51FB /* Model.swift */,
 				41CCD3FB1EBB4C0900AD51FB /* Assets.xcassets */,
 				41CCD3F41EBB4C0900AD51FB /* AppDelegate.swift */,
 				41CCD3FD1EBB4C0900AD51FB /* LaunchScreen.storyboard */,
