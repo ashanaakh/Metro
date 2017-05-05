@@ -1,6 +1,6 @@
 //
 //  Model.swift
-//  KyivMetro
+//  Metro
 //
 //  Created by Ali on 4/27/17.
 //  Copyright © 2017 Ali. All rights reserved.
@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 // MARK: App's Localization
-public enum Language {
+public enum Language: Int {
     case Russian
     case Ukrainian
     case English
@@ -145,6 +145,10 @@ final class Model {
     
     func changeLanguage(for language: Language) {
         self.language = language
+        
+        let defaults = UserDefaults.standard
+        defaults.set(language.rawValue, forKey: "Language")
+        
         for i in 0..<stations.count {
             stations[i].language = language
         }

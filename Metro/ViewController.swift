@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  KyivMetro
+//  Metro
 //
 //  Created by Ali on 4/27/17.
 //  Copyright © 2017 Ali. All rights reserved.
@@ -50,7 +50,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        model = Model(language: language)
+        //Language Data
+        let defaults = UserDefaults.standard
+        if let lang = defaults.object(forKey: "Language") as? Int {
+            model = Model(language: Language(rawValue: lang)!)
+            set(language: Language(rawValue: lang)!)
+        }
+        
         
         // goButton Settings
         goButton.layer.borderColor =  #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1).cgColor

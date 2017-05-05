@@ -1,6 +1,6 @@
 //
 //  stationCell.swift
-//  KyivMetro
+//  Metro
 //
 //  Created by Ali on 4/28/17.
 //  Copyright © 2017 Ali. All rights reserved.
