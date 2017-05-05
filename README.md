@@ -4,4 +4,13 @@
 This Application was created by Ali Shanaakh. It called "Metro Navigator".
 It's for iOS devices.
 </p>
+
+<img href="main.png">
 <img href="">
+<img href="">
+<img href="">
+<img href="">
+<img href="">
+<img href="">
+
+<div id="screenShootsBlock"> </div>
