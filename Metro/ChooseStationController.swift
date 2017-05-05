@@ -132,7 +132,7 @@ class ChooseStationController: UITableViewController{
             cell = nearCell
         default:
             let stationCell = tableView.dequeueReusableCell(withIdentifier: "SCell", for: indexPath) as! StationCell
-            let line = (showNear ? filteredArray : array)[section]
+            let line = (showNear ? array : filteredArray)[section]
             stationCell.set(lineIcon: line.line, stationName: line.stations[indexPath.row])
             stationCell.backgroundColor = colors[section]
             cell = stationCell
@@ -173,6 +173,8 @@ extension ChooseStationController : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let text = searchController.searchBar.text, !text.isEmpty {
             filterContent(for: text)
+        } else {
+            filteredArray = array
         }
         tableView.reloadData()
     }
@@ -196,6 +198,8 @@ extension ChooseStationController : UISearchResultsUpdating {
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }
+    
+    
 }
 
 // MARK: CLLocationManagerDelegate
