@@ -5,7 +5,7 @@ This Application was created by Ali Shanaakh. It called "Metro Navigator".
 It's for iOS devices.
 </p>
 
-<img href="https://github.com/AliShanaa/Metro/blob/master/resource/main.png">
+<img src="resource/main.png" alt="Main window">
 <img href="">
 <img href="">
 <img href="">
