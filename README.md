@@ -4,7 +4,7 @@
 Metro Navigator for Kyiv <br>
 </p>
 
-<h2>Screen Shots</h2>
+<h2>Features:</h2>
 <ul>
     <li>Find best path from one station to another</li>
     <li>User can choose, which path to use</li>
