@@ -5,8 +5,8 @@ This Application was created by Ali Shanaakh. It called "Metro Navigator".
 It's for iOS devices.
 </p>
 
-<div width="500px" height="300px" bgcolor="gray"> 
-    <img src="resource/eng.png" alt="Main window" width="160px" height="284px" >
+<div width="1000px" height="1000px" bgcolor="#E6E6FA"> 
+    <img src="resource/eng.png" alt="Main window" width="19%" height="19%" >
     <img src="resource/rus.png" alt="Main window" width="160px" height="284px" >
     <img src="resource/ua.png" alt="Main window" width="160px" height="284px" >
     <img src="resource/choose1.png" alt="Choosing Station" width="160px" height="284px" >
