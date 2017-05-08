@@ -35,11 +35,12 @@ class StationTest: XCTestCase {
         
         station.language = .Russian
         XCTAssertEqual(station.line, "Святошинско-Броварская")
+        
     }
 }
 
 class ModelTest: XCTestCase {
-    func testSeacher() {
+    func testSearch() {
         let model = Model(language: .English)
         
         XCTAssertTrue(model.isValidStation(station: "Akademmistechko"))
@@ -54,5 +55,13 @@ class ModelTest: XCTestCase {
         let result = model.search(from: "Левобережная", to: "Крещатик")
         
         XCTAssertTrue(!result.isEmpty)
+        
+        model.changeLanguage(for: .English)
+        
+        XCTAssertTrue(model.language == .English)
+        XCTAssertTrue(model.stations[0].language  == .English)
+        XCTAssertTrue(model.stations[0].line == "1. Sviatoshynsko-Brovarska")
+        XCTAssertTrue(model.stations[0].station == "Akademmistechko")
+        
     }
 }

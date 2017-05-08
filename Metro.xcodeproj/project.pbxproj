@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41942A011EC0A0A600C1E270 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942A001EC0A0A600C1E270 /* Station.swift */; };
+		41942A031EC0A0D200C1E270 /* Searcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942A021EC0A0D200C1E270 /* Searcher.swift */; };
+		41942A0A1EC0A2AA00C1E270 /* NearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942A081EC0A2AA00C1E270 /* NearCell.swift */; };
+		41942A0B1EC0A2AA00C1E270 /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942A091EC0A2AA00C1E270 /* StationCell.swift */; };
 		41CCD3F51EBB4C0900AD51FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CCD3F41EBB4C0900AD51FB /* AppDelegate.swift */; };
 		41CCD3F71EBB4C0900AD51FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CCD3F61EBB4C0900AD51FB /* ViewController.swift */; };
 		41CCD3FA1EBB4C0900AD51FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41CCD3F81EBB4C0900AD51FB /* Main.storyboard */; };
 		41CCD3FC1EBB4C0900AD51FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41CCD3FB1EBB4C0900AD51FB /* Assets.xcassets */; };
 		41CCD3FF1EBB4C0900AD51FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41CCD3FD1EBB4C0900AD51FB /* LaunchScreen.storyboard */; };
 		41CCD40A1EBB4C0900AD51FB /* MetroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CCD4091EBB4C0900AD51FB /* MetroTests.swift */; };
-		41CCD41E1EBB4CF400AD51FB /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CCD4161EBB4CF400AD51FB /* StationCell.swift */; };
-		41CCD41F1EBB4CF400AD51FB /* NearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CCD4171EBB4CF400AD51FB /* NearCell.swift */; };
 		41CCD4201EBB4CF400AD51FB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CCD4181EBB4CF400AD51FB /* SettingsTableViewController.swift */; };
 		41CCD4211EBB4CF400AD51FB /* PathsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CCD4191EBB4CF400AD51FB /* PathsTableViewController.swift */; };
 		41CCD4221EBB4CF400AD51FB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CCD41A1EBB4CF400AD51FB /* Model.swift */; };
@@ -34,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41942A001EC0A0A600C1E270 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		41942A021EC0A0D200C1E270 /* Searcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Searcher.swift; sourceTree = "<group>"; };
+		41942A081EC0A2AA00C1E270 /* NearCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearCell.swift; sourceTree = "<group>"; };
+		41942A091EC0A2AA00C1E270 /* StationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
 		41CCD3F11EBB4C0900AD51FB /* Metro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41CCD3F41EBB4C0900AD51FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41CCD3F61EBB4C0900AD51FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,8 +50,6 @@
 		41CCD4051EBB4C0900AD51FB /* MetroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41CCD4091EBB4C0900AD51FB /* MetroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroTests.swift; sourceTree = "<group>"; };
 		41CCD40B1EBB4C0900AD51FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41CCD4161EBB4CF400AD51FB /* StationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
-		41CCD4171EBB4CF400AD51FB /* NearCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearCell.swift; sourceTree = "<group>"; };
 		41CCD4181EBB4CF400AD51FB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		41CCD4191EBB4CF400AD51FB /* PathsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathsTableViewController.swift; sourceTree = "<group>"; };
 		41CCD41A1EBB4CF400AD51FB /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -72,6 +76,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41942A0C1EC0A2BF00C1E270 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				41942A081EC0A2AA00C1E270 /* NearCell.swift */,
+				41942A091EC0A2AA00C1E270 /* StationCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		41942A0D1EC0A2F100C1E270 /* Algorithms and Data Structure */ = {
+			isa = PBXGroup;
+			children = (
+				41CCD41A1EBB4CF400AD51FB /* Model.swift */,
+				41942A021EC0A0D200C1E270 /* Searcher.swift */,
+				41942A001EC0A0A600C1E270 /* Station.swift */,
+			);
+			name = "Algorithms and Data Structure";
+			sourceTree = "<group>";
+		};
+		41942A0E1EC0A30900C1E270 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				41CCD3FD1EBB4C0900AD51FB /* LaunchScreen.storyboard */,
+				41CCD3F81EBB4C0900AD51FB /* Main.storyboard */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		41CCD3E81EBB4C0800AD51FB = {
 			isa = PBXGroup;
 			children = (
@@ -94,11 +126,11 @@
 			isa = PBXGroup;
 			children = (
 				41CCD42A1EBB70FC00AD51FB /* Resource */,
-				41CCD42B1EBB710700AD51FB /* Cells */,
 				41CCD42C1EBB711D00AD51FB /* Views */,
+				41942A0E1EC0A30900C1E270 /* UI */,
+				41942A0C1EC0A2BF00C1E270 /* Cells */,
+				41942A0D1EC0A2F100C1E270 /* Algorithms and Data Structure */,
 				41CCD42D1EBB713600AD51FB /* Supporting Files */,
-				41CCD3F81EBB4C0900AD51FB /* Main.storyboard */,
-				41CCD41A1EBB4CF400AD51FB /* Model.swift */,
 			);
 			path = Metro;
 			sourceTree = "<group>";
@@ -121,15 +153,6 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
-		41CCD42B1EBB710700AD51FB /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				41CCD4161EBB4CF400AD51FB /* StationCell.swift */,
-				41CCD4171EBB4CF400AD51FB /* NearCell.swift */,
-			);
-			name = Cells;
-			sourceTree = "<group>";
-		};
 		41CCD42C1EBB711D00AD51FB /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +169,6 @@
 			children = (
 				41CCD3FB1EBB4C0900AD51FB /* Assets.xcassets */,
 				41CCD3F41EBB4C0900AD51FB /* AppDelegate.swift */,
-				41CCD3FD1EBB4C0900AD51FB /* LaunchScreen.storyboard */,
 				41CCD4001EBB4C0900AD51FB /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -259,13 +281,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41942A0B1EC0A2AA00C1E270 /* StationCell.swift in Sources */,
+				41942A031EC0A0D200C1E270 /* Searcher.swift in Sources */,
 				41CCD4221EBB4CF400AD51FB /* Model.swift in Sources */,
+				41942A011EC0A0A600C1E270 /* Station.swift in Sources */,
 				41CCD3F71EBB4C0900AD51FB /* ViewController.swift in Sources */,
 				41CCD4201EBB4CF400AD51FB /* SettingsTableViewController.swift in Sources */,
 				41CCD3F51EBB4C0900AD51FB /* AppDelegate.swift in Sources */,
-				41CCD41E1EBB4CF400AD51FB /* StationCell.swift in Sources */,
+				41942A0A1EC0A2AA00C1E270 /* NearCell.swift in Sources */,
 				41CCD4211EBB4CF400AD51FB /* PathsTableViewController.swift in Sources */,
-				41CCD41F1EBB4CF400AD51FB /* NearCell.swift in Sources */,
 				41CCD4231EBB4CF400AD51FB /* ChooseStationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
