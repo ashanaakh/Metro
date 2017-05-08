@@ -85,14 +85,15 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		41942A0D1EC0A2F100C1E270 /* Algorithms and Data Structure */ = {
+		41942A0D1EC0A2F100C1E270 /* Algorithms and Data Structures */ = {
 			isa = PBXGroup;
 			children = (
 				41CCD41A1EBB4CF400AD51FB /* Model.swift */,
 				41942A021EC0A0D200C1E270 /* Searcher.swift */,
 				41942A001EC0A0A600C1E270 /* Station.swift */,
+				41CCD4081EBB4C0900AD51FB /* MetroTests */,
 			);
-			name = "Algorithms and Data Structure";
+			name = "Algorithms and Data Structures";
 			sourceTree = "<group>";
 		};
 		41942A0E1EC0A30900C1E270 /* UI */ = {
@@ -108,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				41CCD3F31EBB4C0900AD51FB /* Metro */,
-				41CCD4081EBB4C0900AD51FB /* MetroTests */,
 				41CCD3F21EBB4C0900AD51FB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,7 +129,7 @@
 				41CCD42C1EBB711D00AD51FB /* Views */,
 				41942A0E1EC0A30900C1E270 /* UI */,
 				41942A0C1EC0A2BF00C1E270 /* Cells */,
-				41942A0D1EC0A2F100C1E270 /* Algorithms and Data Structure */,
+				41942A0D1EC0A2F100C1E270 /* Algorithms and Data Structures */,
 				41CCD42D1EBB713600AD51FB /* Supporting Files */,
 			);
 			path = Metro;
@@ -142,7 +142,7 @@
 				41CCD40B1EBB4C0900AD51FB /* Info.plist */,
 			);
 			path = MetroTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		41CCD42A1EBB70FC00AD51FB /* Resource */ = {
 			isa = PBXGroup;

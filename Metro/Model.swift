@@ -53,13 +53,35 @@ final class Model {
     
     var stations = [Station]()
     
-    func search(from: String, to: String) -> [[Station]] {
+    func search(from: String, to: String) -> [([Station], String)] {
     
         let p1 = stations.index(where: { $0 == from })!
         let p2 = stations.index(where: { $0 == to })!
         
         searcher.search(start: p1, end: p2)
-        return searcher.paths.map({ $0.map({ stations[$0] })})
+        
+        // Time
+        let result = searcher.paths.map { (array) -> ([Station], String) in
+            let p = array.map({ stations[$0] })
+            
+            var time = 0
+            for i in 0..<array.count - 1 {
+                time += Int(searcher.matrix[array[i]][array[i + 1]])
+            }
+            
+            let pathTime = time + (array.count - 1) * 20
+            let hours = pathTime / 3600
+            let mins = (pathTime - hours * 60) / 60
+            
+            if hours > 0 {
+                return (p, "\(hours) hours and \(mins) minutes")
+            } else {
+                return (p, "\(mins) minutes")
+            }
+            
+        }
+        
+        return result
     }
     
     func isValidStation(station: String) -> Bool {
@@ -83,7 +105,7 @@ final class Model {
         
         // Download graph
         let stationsJson = readJSON(name: "Stations") as? [[String : Any]] ?? [[:]]
-        let edges = readJSON(name: "Graph") as? [[String : String]] ?? [[:]]
+        let edges = readJSON(name: "Graph") as? [[String : Any]] ?? [[:]]
         
         stations = stationsJson.flatMap { (xxx) -> [Station] in
             var ru = xxx["lineRU"] as! String
@@ -111,14 +133,12 @@ final class Model {
         var matrix = [[Double]](repeating: [Double](repeating: 0, count: stations.count), count: stations.count)
         
         edges.forEach({
-            
-            for value in Array($0) {
-                let row = Int(value.key)!
-                let column = Int(value.value)!
+                let row = $0["from"] as! Int
+                let column = $0["to"] as! Int
+                let time = Double($0["time"] as! String)!
                 
-                matrix[row][column] = 1
-                matrix[column][row] = 1
-            }
+                matrix[row][column] = time
+                matrix[column][row] = time
         })
         
         searcher = Searcher(matrix: matrix)

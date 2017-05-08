@@ -89,7 +89,10 @@ class ViewController: UIViewController {
             if let pathsTableViewController = segue.destination as? PathsTableViewController {
                 let start = fromStationButton.currentTitle!
                 let end = toStationButton.currentTitle!
-                pathsTableViewController.paths = model.search(from: start, to: end)
+                
+                let res = model.search(from: start, to: end)
+                
+                pathsTableViewController.paths = res
             }
         } else if segue.identifier == "SettingsSegue" {
             if let settings = segue.destination as? SettingsTableViewController {
