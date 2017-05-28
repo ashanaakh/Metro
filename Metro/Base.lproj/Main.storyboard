@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="P6K-Hy-7i2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="P6K-Hy-7i2">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,7 +24,7 @@
                             <tableViewSection headerTitle="   Language" id="2f6-fa-fbT">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="8jN-fs-VbU" style="IBUITableViewCellStyleDefault" id="sUp-uT-PHU">
-                                        <rect key="frame" x="0.0" y="56" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sUp-uT-PHU" id="VQT-mu-SnR">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -41,7 +41,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="SpE-hV-caw" style="IBUITableViewCellStyleDefault" id="y8D-43-Wj5">
-                                        <rect key="frame" x="0.0" y="100" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="99.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y8D-43-Wj5" id="nWT-yc-k8J">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -58,7 +58,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="m5Z-BX-Bfm" style="IBUITableViewCellStyleDefault" id="9Y2-RJ-rMo">
-                                        <rect key="frame" x="0.0" y="144" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="143.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Y2-RJ-rMo" id="s4K-i7-iU8">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -85,7 +85,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="taN-8d-dG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1757" y="-567"/>
+            <point key="canvasLocation" x="758" y="-595"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -102,72 +102,83 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="diL-dr-V1N">
                                 <rect key="frame" x="21" y="84" width="278" height="464"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dDl-JJ-hn9">
-                                        <rect key="frame" x="0.0" y="0.0" width="278" height="50"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rin-VV-SLF">
-                                                <rect key="frame" x="0.0" y="5" width="40" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="VpW-Mb-NYd"/>
-                                                    <constraint firstAttribute="width" secondItem="Rin-VV-SLF" secondAttribute="height" multiplier="1:1" id="g5n-Xt-HH4"/>
-                                                </constraints>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2O-mQ-mdb">
-                                                <rect key="frame" x="50" y="5" width="228" height="40"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="18"/>
-                                                <state key="normal" title="From Station">
-                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="ttv-o7-IV9" kind="show" identifier="fromStation" id="r8l-UI-LBi"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fw0-3g-bYo" customClass="StationControl" customModule="Metro" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="278" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="z2O-mQ-mdb" firstAttribute="top" secondItem="dDl-JJ-hn9" secondAttribute="top" constant="5" id="E1f-lx-ZbX"/>
-                                            <constraint firstAttribute="height" constant="50" id="Uf5-Hl-2L0"/>
-                                            <constraint firstAttribute="trailing" secondItem="z2O-mQ-mdb" secondAttribute="trailing" id="ffs-Eg-tha"/>
-                                            <constraint firstAttribute="bottom" secondItem="z2O-mQ-mdb" secondAttribute="bottom" constant="5" id="uqd-xp-cMj"/>
+                                            <constraint firstAttribute="height" constant="40" id="tGs-2f-BVy"/>
                                         </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3lq-ZH-hnT">
-                                        <rect key="frame" x="0.0" y="100" width="278" height="50"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TLt-5W-U4w">
-                                                <rect key="frame" x="0.0" y="5" width="40" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="p8s-6C-7BR"/>
-                                                    <constraint firstAttribute="width" secondItem="TLt-5W-U4w" secondAttribute="height" multiplier="1:1" id="yxI-Fr-nkh"/>
-                                                </constraints>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T65-6b-eMW">
-                                                <rect key="frame" x="50" y="5" width="228" height="40"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="17"/>
-                                                <state key="normal" title="To Station">
-                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="ttv-o7-IV9" kind="show" identifier="toStation" id="I6t-wB-Mga"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                <color key="value" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="18"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.28513158989999998" green="0.5" blue="0.32125577059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="From Station"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="fieldColor">
+                                                <color key="value" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="2"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZo-pz-Mtp" customClass="StationControl" customModule="Metro" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="90" width="278" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="T65-6b-eMW" firstAttribute="top" secondItem="3lq-ZH-hnT" secondAttribute="top" constant="5" id="6mX-Tn-uIS"/>
-                                            <constraint firstAttribute="bottom" secondItem="T65-6b-eMW" secondAttribute="bottom" constant="5" id="B2d-JJ-Mhh"/>
-                                            <constraint firstAttribute="height" constant="50" id="IFF-pc-P40"/>
-                                            <constraint firstItem="TLt-5W-U4w" firstAttribute="width" secondItem="TLt-5W-U4w" secondAttribute="height" multiplier="1:1" id="JEL-CG-wKP"/>
-                                            <constraint firstAttribute="trailing" secondItem="T65-6b-eMW" secondAttribute="trailing" id="VIL-Aq-BST"/>
+                                            <constraint firstAttribute="height" constant="40" id="eoS-bJ-NC7"/>
                                         </constraints>
-                                    </stackView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                <color key="value" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="18"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="To Station"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.28513158989999998" green="0.5" blue="0.32125577059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="fieldColor">
+                                                <color key="value" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="2"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="50" translatesAutoresizingMaskIntoConstraints="NO" id="FZw-Z6-xfW">
-                                        <rect key="frame" x="100.5" y="200" width="77" height="114"/>
+                                        <rect key="frame" x="100.5" y="180" width="77" height="134"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="80"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tad-qd-ir5">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tad-qd-ir5" customClass="CircleButton" customModule="Metro" customModuleProvider="target">
                                         <rect key="frame" x="89" y="364" width="100" height="100"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -178,16 +189,27 @@
                                         <state key="normal" title="Go">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.14167958498001099" green="0.39631554484367371" blue="0.56402879953384399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="axh-bv-ZRJ" kind="show" identifier="ShowPaths" id="jSL-Wh-Qg6"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="dDl-JJ-hn9" secondAttribute="trailing" id="7p4-RF-xfQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="3lq-ZH-hnT" secondAttribute="trailing" id="QEE-SM-dYd"/>
-                                    <constraint firstItem="3lq-ZH-hnT" firstAttribute="leading" secondItem="diL-dr-V1N" secondAttribute="leading" id="qow-BS-h3V"/>
-                                    <constraint firstItem="dDl-JJ-hn9" firstAttribute="leading" secondItem="diL-dr-V1N" secondAttribute="leading" id="zQc-xT-Jvr"/>
+                                    <constraint firstItem="kZo-pz-Mtp" firstAttribute="leading" secondItem="diL-dr-V1N" secondAttribute="leading" id="PuS-En-WDs"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fw0-3g-bYo" secondAttribute="trailing" id="dVP-HH-0aH"/>
+                                    <constraint firstItem="Fw0-3g-bYo" firstAttribute="leading" secondItem="diL-dr-V1N" secondAttribute="leading" id="pUG-Qt-tgR"/>
+                                    <constraint firstAttribute="trailing" secondItem="kZo-pz-Mtp" secondAttribute="trailing" id="xMq-kh-84V"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -200,23 +222,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vtn-94-hqs">
-                        <barButtonItem key="rightBarButtonItem" image="settings-icon2" id="egz-g7-jgc">
+                        <barButtonItem key="leftBarButtonItem" image="settings-icon1" id="egz-g7-jgc">
                             <connections>
                                 <segue destination="T6t-sJ-DBo" kind="show" identifier="SettingsSegue" id="9ZG-rf-BfX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="fromStationButton" destination="z2O-mQ-mdb" id="g1Z-1J-cqj"/>
-                        <outlet property="fromStationLineIcon" destination="Rin-VV-SLF" id="2mh-IQ-B8V"/>
+                        <outlet property="from" destination="Fw0-3g-bYo" id="LMu-gj-nqm"/>
                         <outlet property="goButton" destination="tad-qd-ir5" id="b8a-GR-9YY"/>
-                        <outlet property="toStationButton" destination="T65-6b-eMW" id="YIG-ip-but"/>
-                        <outlet property="toStationLineIcon" destination="TLt-5W-U4w" id="kWZ-Hd-bw7"/>
+                        <outlet property="to" destination="kZo-pz-Mtp" id="JZ6-TO-8uy"/>
+                        <segue destination="ttv-o7-IV9" kind="show" identifier="choose" id="mBp-H6-VNZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="945" y="89"/>
+            <point key="canvasLocation" x="759" y="89"/>
         </scene>
         <!--Choose Station Controller-->
         <scene sceneID="QMU-fd-aKh">
@@ -347,7 +368,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQ3-qF-aIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1757" y="108"/>
+            <point key="canvasLocation" x="1673" y="89"/>
         </scene>
         <!--Subway Navigation-->
         <scene sceneID="ZTL-WM-NTY">
@@ -370,7 +391,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kch-te-mdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="83" y="89"/>
+            <point key="canvasLocation" x="-167" y="89"/>
         </scene>
         <!--Paths Table View Controller-->
         <scene sceneID="fEa-of-0fJ">
@@ -391,7 +412,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qfS-pI-JGM">
                                             <rect key="frame" x="5" y="0.0" width="310" height="35"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p11-wD-kUx">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="p11-wD-kUx">
                                                     <rect key="frame" x="0.0" y="5" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="p11-wD-kUx" secondAttribute="height" multiplier="1:1" id="TXz-SO-cJx"/>
@@ -435,13 +456,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5V-KB-T8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="945" y="824"/>
+            <point key="canvasLocation" x="758" y="863"/>
         </scene>
     </scenes>
     <resources>
-        <image name="settings-icon2" width="25" height="25"/>
+        <image name="2" width="750" height="750"/>
+        <image name="settings-icon1" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="r8l-UI-LBi"/>
-    </inferredMetricsTieBreakers>
 </document>

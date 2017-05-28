@@ -40,7 +40,7 @@ class PathsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SCell", for: indexPath) as! StationCell
         let st = paths[indexPath.section].0[indexPath.row]
         
-        cell.set(lineIcon: st.line, stationName: st.station)
+        cell.set(lineIcon: st.line, stationName: st.name)
         return cell
     }
 }

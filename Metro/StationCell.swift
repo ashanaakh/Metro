@@ -1,5 +1,5 @@
 //
-//  stationCell.swift
+//  StationCell.swift
 //  Metro
 //
 //  Created by Ali on 4/28/17.
@@ -18,4 +18,6 @@ class StationCell: UITableViewCell {
         self.stationName.text = stationName
     }
 }
+
+
 

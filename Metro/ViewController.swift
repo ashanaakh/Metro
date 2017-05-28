@@ -1,4 +1,4 @@
-//
+ //
 //  ViewController.swift
 //  Metro
 //
@@ -7,6 +7,34 @@
 //
 
 import UIKit
+
+enum OnFocus: Int {
+    case from
+    case to
+}
+
+extension UIColor {
+    struct Button {
+        static var disable: UIColor {
+            return .lightGray
+        }
+        static var enable: UIColor {
+            return #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        }
+        static var border: UIColor {
+            return #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
+        }
+    }
+    
+    struct FlashAnimation {
+        static var start: UIColor {
+            return #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        }
+        static var end: UIColor {
+            return #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        }
+    }
+}
 
 extension UIView {
     func shake() {
@@ -26,26 +54,21 @@ extension UIView {
     
     func flash() {
         UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
-            self.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-            self.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+            self.backgroundColor = UIColor.FlashAnimation.start
+            self.backgroundColor = UIColor.FlashAnimation.end
         }, completion: nil)
     }
-    
 }
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var fromStationButton: UIButton!
-    @IBOutlet weak var toStationButton: UIButton!
+    @IBOutlet weak var from: StationControl!
+    @IBOutlet weak var to: StationControl!
     @IBOutlet weak var goButton: UIButton!
-    @IBOutlet weak var fromStationLineIcon: UIImageView!
-    @IBOutlet weak var toStationLineIcon: UIImageView!
     
     var model: Model!
-    
     var language = Language.English
-    
-    var id: Int8 = 1
+    var id: OnFocus = .from
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,40 +81,31 @@ class ViewController: UIViewController {
         } else {
             model = Model(language: language)
         }
-        // goButton Settings
-        goButton.layer.borderColor =  #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1).cgColor
-        goButton.layer.borderWidth = 3
-        goButton.layer.cornerRadius = goButton.bounds.size.width / 2 // Circle goButton
         
         // Hide Icons
-        toStationLineIcon.isHidden = true
-        fromStationLineIcon.isHidden = true
+        to.hideIcon()
+        from.hideIcon()
         
-        // Start and End Stations Seletion
-        fromStationButton.layer.cornerRadius = 10
-        toStationButton.layer.cornerRadius = 10
+        // Actions
+        to.onTap = {
+            self.id = .to
+            self.performSegue(withIdentifier: "choose", sender: self)
+        }
+        from.onTap = {
+            self.id = .from
+            self.performSegue(withIdentifier: "choose", sender: self)
+        }
     }
     
     // MARK: UIPickerViewDelegate
-    // TODO: Make prepare more readable
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "fromStation" {
+        if segue.identifier == "choose" {
             if let chooseStationController = segue.destination as? ChooseStationController {
-                id = 1;
                 chooseStationController.delegate = self
             }
-        } else if segue.identifier == "toStation" {
-            if let chooseStationController = segue.destination as? ChooseStationController {
-                id = 2;
-                chooseStationController.delegate = self
-            }
-        } else if segue.identifier == "ShowPaths" {
+        }  else if segue.identifier == "ShowPaths" {
             if let pathsTableViewController = segue.destination as? PathsTableViewController {
-                let start = fromStationButton.currentTitle!
-                let end = toStationButton.currentTitle!
-                
-                let res = model.search(from: start, to: end)
-                
+                let res = model.search(from: from.text, to: to.text)
                 pathsTableViewController.paths = res
             }
         } else if segue.identifier == "SettingsSegue" {
@@ -101,36 +115,30 @@ class ViewController: UIViewController {
         }
     }
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return !(identifier == "ShowPaths") || goUpdate()
-    }
-    
-    func makeButtonStyle(button: UIButton, text: String, color: UIColor =  #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)) {
-        button.setTitle(text, for: .normal)
-        button.layer.borderColor = color.cgColor
-        button.layer.borderWidth = 3
-        button.setTitleColor(.black, for: .normal)
-    }
-    
-    func goUpdate() -> Bool {
-        let isValid1 = model.isValidStation(station: fromStationButton.currentTitle ?? "")
-        let isValid2 = model.isValidStation(station: toStationButton.currentTitle ?? "")
-        let notEqual = toStationButton.currentTitle != fromStationButton.currentTitle
+    var canUpdateGo: Bool {
+        let isValid1 = model.isValidStation(station: from.text)
+        let isValid2 = model.isValidStation(station: to.text)
+        let notEqual = to.text != from.text 
         
-        if isValid1 && isValid2 && notEqual {
-            goButton.change(color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))
-        } else {
-            goButton.backgroundColor = .lightGray
-            goButton.shake()
-        }
         return isValid1 && isValid2 && notEqual
     }
     
-    // fromStationButton and toStationButton defult views
-    func defaultStyle(button: UIButton, text: String) {
-        button.setTitle(text, for: .normal)
-        button.setTitleColor(.lightGray, for: .normal)
-        button.layer.borderWidth = 0
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return !(identifier == "ShowPaths") || canUpdateGo
+    }
+    
+    func setStyle(for view: StationControl, with text: String) {
+        view.text = text;
+        view.borderWidth = 3
+    }
+    
+    func goUpdate() {
+        guard canUpdateGo else {
+            goButton.backgroundColor = UIColor.Button.disable
+            goButton.shake()
+            return
+        }
+        goButton.change(color: UIColor.Button.enable)
     }
 }
 
@@ -141,19 +149,16 @@ extension ViewController : ChooseStationControllerDelegate {
     }
     
     func set(station: Station) {
-      switch id {
-        case 1:
-            makeButtonStyle(button: fromStationButton, text: station.station)
-            fromStationLineIcon.image = UIImage(named: String(station.line.characters.first!))
-            fromStationLineIcon.isHidden = false;
-        case 2:
-            makeButtonStyle(button: toStationButton, text: station.station)
-            toStationLineIcon.image = UIImage(named: String(station.line.characters.first!))
-            toStationLineIcon.isHidden = false;
-        default: break
+        var view: StationControl;
+        switch id {
+            case .from: view = from
+            case .to: view = to
         }
         
-        let _ = goUpdate()
+        setStyle(for: view, with: station.name)
+        view.icon = UIImage(named: String(station.line.characters.first!))!
+        view.showIcon()
+        goUpdate()
     }
 }
 
@@ -167,21 +172,21 @@ extension ViewController: SettingDelegate {
         self.language = language
         model.changeLanguage(for: language)
 
-        fromStationLineIcon.isHidden = true
-        toStationLineIcon.isHidden = true
+        from.clear()
+        to.clear()	
         
         // Language
         switch language {
         case .English:
-            defaultStyle(button: fromStationButton, text: "From Station")
-            defaultStyle(button: toStationButton, text: "To Station")
+            from.placeholder = "From Station"
+            to.placeholder = "From Station"
         case .Ukrainian:
-            defaultStyle(button: fromStationButton, text: "Від станції")
-            defaultStyle(button: toStationButton, text: "До станції")
+            from.placeholder = "Від станції"
+            to.placeholder = "До станції"
         case .Russian:
-            defaultStyle(button: fromStationButton, text: "От Станции")
-            defaultStyle(button: toStationButton, text: "До Станации")
+            from.placeholder = "От Станции"
+            to.placeholder = "До Станации"
         }
-        let _ = goUpdate()
+        goUpdate()
     }
 }
