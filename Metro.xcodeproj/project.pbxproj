@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		415268141ED8D20D008EC915 /* StationControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415268131ED8D20D008EC915 /* StationControl.swift */; };
+		415268141ED8D20D008EC915 /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415268131ED8D20D008EC915 /* StationView.swift */; };
 		416976291EDAF4B900520066 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416976281EDAF4B900520066 /* CircleButton.swift */; };
 		41942A011EC0A0A600C1E270 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942A001EC0A0A600C1E270 /* Station.swift */; };
 		41942A031EC0A0D200C1E270 /* Searcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942A021EC0A0D200C1E270 /* Searcher.swift */; };
@@ -38,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		415268131ED8D20D008EC915 /* StationControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationControl.swift; sourceTree = "<group>"; };
+		415268131ED8D20D008EC915 /* StationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
 		416976281EDAF4B900520066 /* CircleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		41942A001EC0A0A600C1E270 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		41942A021EC0A0D200C1E270 /* Searcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Searcher.swift; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 				41CCD41B1EBB4CF400AD51FB /* ChooseStationController.swift */,
 				41CCD3F61EBB4C0900AD51FB /* ViewController.swift */,
 				416976281EDAF4B900520066 /* CircleButton.swift */,
-				415268131ED8D20D008EC915 /* StationControl.swift */,
+				415268131ED8D20D008EC915 /* StationView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -292,7 +292,7 @@
 				41CCD4221EBB4CF400AD51FB /* Model.swift in Sources */,
 				416976291EDAF4B900520066 /* CircleButton.swift in Sources */,
 				41942A011EC0A0A600C1E270 /* Station.swift in Sources */,
-				415268141ED8D20D008EC915 /* StationControl.swift in Sources */,
+				415268141ED8D20D008EC915 /* StationView.swift in Sources */,
 				41CCD3F71EBB4C0900AD51FB /* ViewController.swift in Sources */,
 				41CCD4201EBB4CF400AD51FB /* SettingsTableViewController.swift in Sources */,
 				41CCD3F51EBB4C0900AD51FB /* AppDelegate.swift in Sources */,

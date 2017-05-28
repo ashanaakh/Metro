@@ -14,7 +14,7 @@ extension UIColor {
     }
 }
 
-@IBDesignable class StationControl: UIStackView {
+@IBDesignable class StationView: UIStackView {
     
     private var field = (button: UIButton(), fieldIsEmpty: true)
     private var imageView = UIImageView()
@@ -37,23 +37,6 @@ extension UIColor {
         }
     }
     
-    @IBInspectable var text: String {
-        set {
-            if newValue == "" {
-                field.button.setTitle(placeholder, for: .normal)
-                field.button.setTitleColor(.placeholder, for: .normal)
-                field.fieldIsEmpty = true
-            } else {
-                field.button.setTitle(newValue, for: .normal)
-                field.button.setTitleColor(fieldTextColor, for: .normal)
-                field.fieldIsEmpty = false
-            }
-        }
-        get {
-            return field.button.currentTitle!
-        }
-    }
-    
     @IBInspectable override var spacing: CGFloat {
         didSet {
             super.spacing = spacing
@@ -72,21 +55,15 @@ extension UIColor {
         }
     }
     
-    @IBInspectable var borderColor: UIColor {
-        set {
-            field.button.layer.borderColor = newValue.cgColor
-        }
-        get {
-            return UIColor(cgColor: field.button.layer.borderColor!)
+    @IBInspectable var borderColor: UIColor = .clear {
+        didSet {
+            field.button.layer.borderColor = borderColor.cgColor
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat {
-        set {
-            field.button.layer.borderWidth = newValue
-        }
-        get {
-            return field.button.layer.borderWidth
+    @IBInspectable var borderWidth: CGFloat = 0 {
+        didSet {
+            field.button.layer.borderWidth = borderWidth
         }
     }
     
@@ -112,6 +89,23 @@ extension UIColor {
         }
     }
     
+    @IBInspectable var text: String {
+        set {
+            if newValue == "" {
+                field.button.setTitle(placeholder, for: .normal)
+                field.button.setTitleColor(.placeholder, for: .normal)
+                field.fieldIsEmpty = true
+            } else {
+                field.button.setTitle(newValue, for: .normal)
+                field.button.setTitleColor(fieldTextColor, for: .normal)
+                field.fieldIsEmpty = false
+            }
+        }
+        get {
+            return field.button.currentTitle!
+        }
+    }
+
     //MARK: Initialization
     
     override init(frame: CGRect) {
@@ -142,11 +136,12 @@ extension UIColor {
         addArrangedSubview(button)
     }
     
+    // MARK: Actions
+    
     func fieldTapped() {
         onTap()
     }
     
-    //MARK: Action
     func hideIcon() {
         imageView.isHidden = true
     }
@@ -159,6 +154,11 @@ extension UIColor {
         text = ""
         borderWidth = 0
         hideIcon()
+    }
+    
+    func set(text: String) {
+        self.text = text;
+        borderWidth = 3
     }
 }
 

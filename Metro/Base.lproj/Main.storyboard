@@ -24,7 +24,7 @@
                             <tableViewSection headerTitle="   Language" id="2f6-fa-fbT">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="8jN-fs-VbU" style="IBUITableViewCellStyleDefault" id="sUp-uT-PHU">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="56" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sUp-uT-PHU" id="VQT-mu-SnR">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -41,7 +41,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="SpE-hV-caw" style="IBUITableViewCellStyleDefault" id="y8D-43-Wj5">
-                                        <rect key="frame" x="0.0" y="99.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="100" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y8D-43-Wj5" id="nWT-yc-k8J">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -58,7 +58,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingCell" textLabel="m5Z-BX-Bfm" style="IBUITableViewCellStyleDefault" id="9Y2-RJ-rMo">
-                                        <rect key="frame" x="0.0" y="143.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="144" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Y2-RJ-rMo" id="s4K-i7-iU8">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -102,7 +102,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="diL-dr-V1N">
                                 <rect key="frame" x="21" y="84" width="278" height="464"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fw0-3g-bYo" customClass="StationControl" customModule="Metro" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fw0-3g-bYo" customClass="StationView" customModule="Metro" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="278" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -137,7 +137,7 @@
                                             <userDefinedRuntimeAttribute type="image" keyPath="icon" value="2"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZo-pz-Mtp" customClass="StationControl" customModule="Metro" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZo-pz-Mtp" customClass="StationView" customModule="Metro" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="90" width="278" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -201,7 +201,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="axh-bv-ZRJ" kind="show" identifier="ShowPaths" id="jSL-Wh-Qg6"/>
+                                            <segue destination="axh-bv-ZRJ" kind="show" identifier="results" id="jSL-Wh-Qg6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -224,7 +224,7 @@
                     <navigationItem key="navigationItem" id="vtn-94-hqs">
                         <barButtonItem key="leftBarButtonItem" image="settings-icon1" id="egz-g7-jgc">
                             <connections>
-                                <segue destination="T6t-sJ-DBo" kind="show" identifier="SettingsSegue" id="9ZG-rf-BfX"/>
+                                <segue destination="T6t-sJ-DBo" kind="show" identifier="settings" id="9ZG-rf-BfX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

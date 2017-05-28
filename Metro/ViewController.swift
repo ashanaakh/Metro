@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum OnFocus: Int {
+enum ViewOnFocus: Int {
     case from
     case to
 }
@@ -37,21 +37,6 @@ extension UIColor {
 }
 
 extension UIView {
-    func shake() {
-        let animation = CAKeyframeAnimation(keyPath: "position.x")
-        animation.isAdditive = true
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        animation.duration = 0.5
-        animation.values = [-15.0, 15.0, -13.0, 13.0, -8.0, 8.0, 0.0]
-        layer.add(animation, forKey: "shake")
-    }
-    
-    func change(color: UIColor, delay: Double = 0.2){
-        UIView.animate(withDuration: 0.75, delay: delay, animations: {
-            self.backgroundColor = color
-        }, completion:nil)
-    }
-    
     func flash() {
         UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
             self.backgroundColor = UIColor.FlashAnimation.start
@@ -62,18 +47,22 @@ extension UIView {
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var from: StationControl!
-    @IBOutlet weak var to: StationControl!
-    @IBOutlet weak var goButton: UIButton!
+    @IBOutlet weak var from: StationView!
+    @IBOutlet weak var to: StationView!
+    @IBOutlet weak var goButton: CircleButton!
     
     var model: Model!
     var language = Language.English
-    var id: OnFocus = .from
+    var onFocus: ViewOnFocus = .from
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //Language
+    var canUpdateGo: Bool {
+        let isValid1 = model.isValidStation(station: from.text)
+        let isValid2 = model.isValidStation(station: to.text)
+        let notEqual = to.text != from.text
+        return isValid1 && isValid2 && notEqual
+    }
+    
+    private func languageSetup() {
         let defaults = UserDefaults.standard
         if let lang = defaults.object(forKey: "Language") as? Int {
             model = Model(language: Language(rawValue: lang)!)
@@ -81,6 +70,13 @@ class ViewController: UIViewController {
         } else {
             model = Model(language: language)
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //Language
+        languageSetup()
         
         // Hide Icons
         to.hideIcon()
@@ -88,57 +84,32 @@ class ViewController: UIViewController {
         
         // Actions
         to.onTap = {
-            self.id = .to
+            self.onFocus = .to
             self.performSegue(withIdentifier: "choose", sender: self)
         }
-        from.onTap = {
-            self.id = .from
-            self.performSegue(withIdentifier: "choose", sender: self)
-        }
-    }
-    
-    // MARK: UIPickerViewDelegate
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "choose" {
-            if let chooseStationController = segue.destination as? ChooseStationController {
-                chooseStationController.delegate = self
-            }
-        }  else if segue.identifier == "ShowPaths" {
-            if let pathsTableViewController = segue.destination as? PathsTableViewController {
-                let res = model.search(from: from.text, to: to.text)
-                pathsTableViewController.paths = res
-            }
-        } else if segue.identifier == "SettingsSegue" {
-            if let settings = segue.destination as? SettingsTableViewController {
-                settings.delegate = self
-            }
-        }
-    }
-    
-    var canUpdateGo: Bool {
-        let isValid1 = model.isValidStation(station: from.text)
-        let isValid2 = model.isValidStation(station: to.text)
-        let notEqual = to.text != from.text 
         
-        return isValid1 && isValid2 && notEqual
+        from.onTap = {
+            self.onFocus = .from
+            self.performSegue(withIdentifier: "choose", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier! {
+        case "choose":
+            (segue.destination as? ChooseStationController)?.delegate = self
+        case "results":
+            let paths = model.search(from: from.text, to: to.text)
+            (segue.destination as? PathsTableViewController)?.paths = paths
+        case "settings":
+            (segue.destination as? SettingsTableViewController)?.delegate = self
+        default: break
+        }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return !(identifier == "ShowPaths") || canUpdateGo
-    }
-    
-    func setStyle(for view: StationControl, with text: String) {
-        view.text = text;
-        view.borderWidth = 3
-    }
-    
-    func goUpdate() {
-        guard canUpdateGo else {
-            goButton.backgroundColor = UIColor.Button.disable
-            goButton.shake()
-            return
-        }
-        goButton.change(color: UIColor.Button.enable)
+        if (identifier == "results") { goButton.update(x: canUpdateGo) }
+        return !(identifier == "results") || canUpdateGo
     }
 }
 
@@ -149,16 +120,15 @@ extension ViewController : ChooseStationControllerDelegate {
     }
     
     func set(station: Station) {
-        var view: StationControl;
-        switch id {
+        var view: StationView;
+        switch onFocus {
             case .from: view = from
             case .to: view = to
         }
-        
-        setStyle(for: view, with: station.name)
+        view.set(text: station.name)
         view.icon = UIImage(named: String(station.line.characters.first!))!
         view.showIcon()
-        goUpdate()
+        goButton.update(x: canUpdateGo)
     }
 }
 
@@ -187,6 +157,6 @@ extension ViewController: SettingDelegate {
             from.placeholder = "От Станции"
             to.placeholder = "До Станации"
         }
-        goUpdate()
+        goButton.update(x: canUpdateGo)
     }
 }

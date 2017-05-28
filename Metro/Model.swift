@@ -103,9 +103,12 @@ final class Model {
         
         self.language = language
         
+        let stationsFileName = "Stations"
+        let routeFileName = "Graph"
+        
         // Download graph
-        let stationsJson = readJSON(name: "Stations") as? [[String : Any]] ?? [[:]]
-        let edges = readJSON(name: "Graph") as? [[String : Any]] ?? [[:]]
+        let stationsJson = readJSON(name: stationsFileName) as? [[String : Any]] ?? [[:]]
+        let edges = readJSON(name: routeFileName) as? [[String : Any]] ?? [[:]]
         
         stations = stationsJson.flatMap { (xxx) -> [Station] in
             var ru = xxx["lineRU"] as! String
