@@ -1,3 +1,6 @@
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0ec563f7470f489da027468058116a1b)](https://www.codacy.com/app/ashanaakh/metro?utm_source=github.com&utm_medium=referral&utm_content=ashanaakh/metro&utm_campaign=badger)
+
 <h1>Metro Application for MacPaw Internship</h1>
 
 <p> 
