@@ -121,6 +121,7 @@ class ChooseStationController: UITableViewController{
     }
 
     func cellFor(indexPath: IndexPath) -> UITableViewCell {
+
         let cell: UITableViewCell
         let section = showNear ? indexPath.section - 1 : indexPath.section
 
@@ -154,10 +155,12 @@ class ChooseStationController: UITableViewController{
         delegate.set(station: station)
         navigationController?.popViewController(animated: true)
     }
+
 }
 
 // MARK: UISearchController
 extension ChooseStationController : UISearchResultsUpdating {
+
     func filterContent(for searchText: String) {
         filteredArray = array
 
@@ -199,11 +202,11 @@ extension ChooseStationController : UISearchResultsUpdating {
         tableView.tableHeaderView = searchController.searchBar
     }
 
-
 }
 
 // MARK: CLLocationManagerDelegate
 extension ChooseStationController : CLLocationManagerDelegate {
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let dist = { (x: CLLocation) -> Double in
             return locations[0].distance(from: x)
@@ -215,4 +218,5 @@ extension ChooseStationController : CLLocationManagerDelegate {
         nearStations = Array(near.map{($0.0, $0.1)}[0...2])
         tableView.reloadData()
     }
+
 }

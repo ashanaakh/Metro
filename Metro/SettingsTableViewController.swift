@@ -48,9 +48,11 @@ class SettingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let res = super.tableView(tableView, cellForRowAt: indexPath)
+
         if rowWithCheckmark == indexPath.row {
             res.accessoryType = .checkmark
         }
+
         return res
     }
 }

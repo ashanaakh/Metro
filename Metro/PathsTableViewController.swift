@@ -43,4 +43,5 @@ class PathsTableViewController: UITableViewController {
         cell.set(lineIcon: st.line, stationName: st.name)
         return cell
     }
+
 }

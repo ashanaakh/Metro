@@ -31,4 +31,5 @@ class NearCell: UITableViewCell {
         view.layer.addSublayer(gradient)
         layer.addSublayer(gradient)
     }
+
 }

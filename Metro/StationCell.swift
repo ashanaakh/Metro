@@ -17,6 +17,7 @@ class StationCell: UITableViewCell {
         self.lineIcon.image = UIImage(named: String(lineIcon.characters.first!))
         self.stationName.text = stationName
     }
+
 }
 
 

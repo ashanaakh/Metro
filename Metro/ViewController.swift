@@ -14,7 +14,8 @@ enum ViewOnFocus: Int {
 }
 
 extension UIColor {
-    struct Button {
+
+  struct Button {
         static var disable: UIColor {
             return .lightGray
         }
@@ -34,15 +35,18 @@ extension UIColor {
             return #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         }
     }
+
 }
 
 extension UIView {
+
     func flash() {
         UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
             self.backgroundColor = UIColor.FlashAnimation.start
             self.backgroundColor = UIColor.FlashAnimation.end
         }, completion: nil)
     }
+
 }
 
 class ViewController: UIViewController {
@@ -111,6 +115,7 @@ class ViewController: UIViewController {
         if (identifier == "results") { goButton.update(x: canUpdateGo) }
         return !(identifier == "results") || canUpdateGo
     }
+
 }
 
 extension ViewController : ChooseStationControllerDelegate {
@@ -130,9 +135,11 @@ extension ViewController : ChooseStationControllerDelegate {
         view.showIcon()
         goButton.update(x: canUpdateGo)
     }
+
 }
 
 extension ViewController: SettingDelegate {
+
     func set(language: Language) {
 
         guard language != self.language else {
@@ -159,4 +166,5 @@ extension ViewController: SettingDelegate {
         }
         goButton.update(x: canUpdateGo)
     }
+
 }
