@@ -1,6 +1,6 @@
 //
 //  SettingsTableViewController.swift
-//  KyivMetro
+//  Metro
 //
 //  Created by Ali on 5/1/17.
 //  Copyright © 2017 Ali. All rights reserved.

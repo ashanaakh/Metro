@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  KyivMetro
+//  Metro
 //
 //  Created by Ali on 4/27/17.
 //  Copyright © 2017 Ali. All rights reserved.

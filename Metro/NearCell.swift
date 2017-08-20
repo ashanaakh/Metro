@@ -1,6 +1,6 @@
 //
 //  NearCell.swift
-//  KyivMetro
+//  Metro
 //
 //  Created by Ali on 5/3/17.
 //  Copyright © 2017 Ali. All rights reserved.
