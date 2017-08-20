@@ -10,12 +10,12 @@ import UIKit
 
 class PathsTableViewController: UITableViewController {
     
-    var paths: [[Station]]!
+    var paths: [([Station], String)]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        paths.sort(by: { $0.0.count < $0.1.count })
-        paths.sort(by: { Set($0.0.map({ $0.line })).count < Set($0.1.map({ $0.line })).count })
+        paths.sort(by: { $0.0.0.count < $0.1.0.count })
+        paths.sort(by: { Set($0.0.0.map({ $0.line})).count < Set($0.1.0.map({ $0.line})).count })
     }
 
     // MARK: TableView
@@ -25,14 +25,11 @@ class PathsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 { return "Best \(paths[section].count) stations" }
-        
-        let x = Set(paths[section].map({ $0.line })).count
-        return "\(paths[section].count) stations in \(x) lines"
+        return paths[section].1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return paths[section].count
+        return paths[section].0.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -41,7 +38,7 @@ class PathsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SCell", for: indexPath) as! StationCell
-        let st = paths[indexPath.section][indexPath.row]
+        let st = paths[indexPath.section].0[indexPath.row]
         
         cell.set(lineIcon: st.line, stationName: st.station)
         return cell
