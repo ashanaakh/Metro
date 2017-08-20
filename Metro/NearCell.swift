@@ -22,4 +22,13 @@ class NearCell: UITableViewCell {
         icon.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
         icon.flash()
     }
+    
+    func backgroundColorGradient(colors: [UIColor]) {
+        let gradient = CAGradientLayer()
+        gradient.frame.size = frame.size
+        gradient.colors = colors.map({ $0.cgColor })
+        let view = UIView()
+        view.layer.addSublayer(gradient)
+        layer.addSublayer(gradient)
+    }
 }

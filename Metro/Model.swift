@@ -43,8 +43,8 @@ final public class Station {
     
     public typealias LocalizedString = (UA: String, RU: String, ENG: String)
     
-    private let subwayLine: LocalizedString
-    private let subwayStation: LocalizedString
+    let subwayLine: LocalizedString
+    let subwayStation: LocalizedString
     
     public var station : String {
         switch language {

@@ -37,6 +37,13 @@ class ChooseStationController: UITableViewController{
     // Nearest stations
     var nearStations = [(station: String, distance: Double)]()
     
+    var showNear: Bool {
+        let notEmpty = !searchController.searchBar.text!.isEmpty
+        let activeSearch = searchController.isActive
+        return !activeSearch && !notEmpty && !nearStations.isEmpty
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,11 +73,6 @@ class ChooseStationController: UITableViewController{
         locationManager.startUpdatingLocation() // Start
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-//        animateTable()
-    }
-    
     func randomColor() -> UIColor {
         let b = CGFloat(arc4random_uniform(255)) / 255
         let g = CGFloat(arc4random_uniform(255)) / 255
@@ -79,48 +81,21 @@ class ChooseStationController: UITableViewController{
         return UIColor(red: 0, green: g, blue: b, alpha: a)
     }
     
-    // TODO: repair
-    func animateTable() {
-      tableView.reloadData()
-        
-        let cells = tableView.visibleCells
-        let tableHeight: CGFloat = tableView.bounds.size.height
-        
-        for cell in cells {
-            cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
-        }
-        
-        var index = 0
-        for cell in cells {
-            UIView.animate(withDuration: 0.75, delay: 0.05 * Double(index), usingSpringWithDamping: 1.1, initialSpringVelocity: 0, options: .curveEaseIn, animations: {
-                cell.transform = CGAffineTransform(translationX: 0, y: 88)
-            }, completion: nil)
-            index += 1
-        }
-    }
-    
     // MARK: TableView
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        let notEmpty = !searchController.searchBar.text!.isEmpty
-        let activeSearch = searchController.isActive
-        
-        guard activeSearch || notEmpty || nearStations.isEmpty else {
-            return array.count + 1
-        }
-        
-        return filteredArray.count
+        return showNear ? array.count + 1 : filteredArray.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let notEmpty = !searchController.searchBar.text!.isEmpty
-        let activeSearch = searchController.isActive
-        
-        guard activeSearch || notEmpty || nearStations.isEmpty else {
-            return (section == 0) ? nearStations.count : array[section - 1].stations.count
+        guard showNear else {
+            return filteredArray[section].stations.count
         }
         
-        return filteredArray[section].stations.count
+        switch section {
+        case 0:  return nearStations.count
+        default: return array[section - 1].stations.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -128,18 +103,17 @@ class ChooseStationController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let notEmpty = !searchController.searchBar.text!.isEmpty
-        let activeSearch = searchController.isActive
-        
-        guard activeSearch || notEmpty || nearStations.isEmpty else {
-            switch section {
-            case 0 where delegate.language == .English: return "Nearest"
-            case 0 where delegate.language == .Russian: return "Ближайшие"
-            case 0 where delegate.language == .Ukrainian: return "Найближчі"
-            default: return array[section - 1].line
-            }
+        guard showNear else {
+            return filteredArray[section].line
         }
-        return filteredArray[section].line
+        
+        // Language
+        switch section {
+        case 0 where delegate.language == .English: return "Nearest"
+        case 0 where delegate.language == .Russian: return "Ближайшие"
+        case 0 where delegate.language == .Ukrainian: return "Найближчі"
+        default: return array[section - 1].line
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -148,64 +122,41 @@ class ChooseStationController: UITableViewController{
     
     func cellFor(indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
+        let section = showNear ? indexPath.section - 1 : indexPath.section
         
-        let notEmpty = !searchController.searchBar.text!.isEmpty
-        let activeSearch = searchController.isActive
-        
-        guard  activeSearch || notEmpty || nearStations.isEmpty else {
-            switch indexPath.section {
-            case 0:
-                cell = tableView.dequeueReusableCell(withIdentifier: "NCell", for: indexPath)
-                (cell as! NearCell).set(name: nearStations[indexPath.row].station , distance: nearStations[indexPath.row].distance / 1000)
-                
-                let gradient: CAGradientLayer = CAGradientLayer()
-                gradient.frame.size = cell.frame.size
-                gradient.colors = [#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1) .cgColor, #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1).cgColor]
-                let x = UIView()
-                x.layer.addSublayer(gradient)
-                cell.backgroundView = x
-                
-            default:
-                let line = (activeSearch || notEmpty || nearStations.isEmpty ? filteredArray : array)[indexPath.section - 1]
-                cell = tableView.dequeueReusableCell(withIdentifier: "SCell", for: indexPath)
-                (cell as! StationCell).set(lineIcon: line.line, stationName: line.stations[indexPath.row])
-                cell.backgroundColor = colors[indexPath.section - 1]
-            }
-            return cell
+        switch indexPath.section {
+        case 0 where showNear:
+            let nearCell = tableView.dequeueReusableCell(withIdentifier: "NCell", for: indexPath) as! NearCell
+            nearCell.set(name: nearStations[indexPath.row].station , distance: nearStations[indexPath.row].distance / 1000)
+            nearCell.backgroundColor = #colorLiteral(red: 0.9685354829, green: 0.968693912, blue: 0.9685017467, alpha: 1)
+            cell = nearCell
+        default:
+            let stationCell = tableView.dequeueReusableCell(withIdentifier: "SCell", for: indexPath) as! StationCell
+            let line = (showNear ? array : filteredArray)[section]
+            stationCell.set(lineIcon: line.line, stationName: line.stations[indexPath.row])
+            stationCell.backgroundColor = colors[section]
+            cell = stationCell
         }
-        
-        let line = (activeSearch || notEmpty || nearStations.isEmpty ? filteredArray : array)[indexPath.section]
-        cell = tableView.dequeueReusableCell(withIdentifier: "SCell", for: indexPath)
-        (cell as! StationCell).set(lineIcon: line.line, stationName: line.stations[indexPath.row])
-        cell.backgroundColor = colors[indexPath.section]
-        
         return cell
     }
-
-    //TODO: IMPROVE
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let notEmpty = !searchController.searchBar.text!.isEmpty
-        let activeSearch = searchController.isActive
-        
         let stationName: String
-        if !notEmpty && !activeSearch && !nearStations.isEmpty {
+        if showNear {
             stationName = (indexPath.section == 0 ?
                 nearStations[indexPath.row].station :
                 array[indexPath.section - 1].stations[indexPath.row])
         } else {
-            let value = filteredArray[indexPath.section]
-            stationName = value.stations[indexPath.row]
+            let arrayInSection = filteredArray[indexPath.section]
+            stationName = arrayInSection.stations[indexPath.row]
         }
-       
         let station = delegate.stations.first(where: { stationName == $0.station })!
         delegate.set(station: station)
-        
         navigationController?.popViewController(animated: true)
     }
 }
 
 // MARK: UISearchController
-
 extension ChooseStationController : UISearchResultsUpdating {
     func filterContent(for searchText: String) {
         filteredArray = array
@@ -215,7 +166,6 @@ extension ChooseStationController : UISearchResultsUpdating {
                 $0.lowercased().contains(searchText.lowercased())
             })
         }
-        
         // Remove line if it is empty
         filteredArray = filteredArray.filter({ !$0.stations.isEmpty })
     }
@@ -223,6 +173,8 @@ extension ChooseStationController : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let text = searchController.searchBar.text, !text.isEmpty {
             filterContent(for: text)
+        } else {
+            filteredArray = array
         }
         tableView.reloadData()
     }
@@ -232,6 +184,7 @@ extension ChooseStationController : UISearchResultsUpdating {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         
+        // Language
         let placeholder: String
         switch delegate.language {
         case .English: placeholder = "Station"
@@ -245,8 +198,11 @@ extension ChooseStationController : UISearchResultsUpdating {
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }
+    
+    
 }
 
+// MARK: CLLocationManagerDelegate
 extension ChooseStationController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let dist = { (x: CLLocation) -> Double in
@@ -257,7 +213,6 @@ extension ChooseStationController : CLLocationManagerDelegate {
             ($0.station, dist($0.coords))
             }.sorted(by: { $0.0.1 < $0.1.1 })
         nearStations = Array(near.map{($0.0, $0.1)}[0...2])
-//        locationManager.stopUpdatingLocation() // Stop
         tableView.reloadData()
     }
 }
