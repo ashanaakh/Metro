@@ -1,0 +1,4 @@
+*.xcodeproj/*
+*/*.plist
+*/Assets.xcassets
+*/Base.lproj
