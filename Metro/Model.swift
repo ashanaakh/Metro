@@ -38,83 +38,6 @@ fileprivate func readJSON(name: String) -> Any {
     }
 }
 
-// MARK: Station as Vertex in Graph
-final public class Station {
-    
-    public typealias LocalizedString = (UA: String, RU: String, ENG: String)
-    
-    let subwayLine: LocalizedString
-    let subwayStation: LocalizedString
-    
-    public var station : String {
-        switch language {
-        case .English: return subwayStation.ENG
-        case .Ukrainian: return subwayStation.UA
-        case .Russian: return subwayStation.RU
-        }
-    }
-    
-    public var line : String {
-        switch language {
-        case .English: return subwayLine.ENG
-        case .Ukrainian: return subwayLine.UA
-        case .Russian: return subwayLine.RU
-        }
-    }
-    
-    var language: Language
-    
-    public var coords: CLLocation
-    
-    static func == (lhs: Station, rhs: Station) -> Bool {
-        return lhs.subwayStation.ENG == lhs.subwayStation.ENG && lhs.subwayLine.ENG == rhs.subwayLine.ENG
-    }
-    
-    static func == (lhs: Station, rhs: String) -> Bool {
-        return rhs == lhs.subwayStation.ENG || rhs == lhs.subwayStation.RU ||  rhs == lhs.subwayStation.UA
-    }
-    
-    static func == (lhs: String, rhs: Station) -> Bool {
-        return rhs == lhs
-    }
-    
-    public init(station: LocalizedString, line: LocalizedString, coordinates: CLLocation, language: Language) {
-        self.subwayLine = line
-        self.coords = coordinates
-        self.subwayStation = station
-        self.language = language
-    }
-}
-
-// MARK: Modefied Depth-First-Search
-fileprivate class Searcher {
-    
-    let matrix: [[Double]]
-    var paths: [[Int]]
-    
-    init(matrix: [[Double]]) {
-        self.matrix = matrix
-        paths = []
-    }
-    
-    func search(start: Int, end: Int) {
-        paths = []
-        search(start: start, end: end, path: [])
-    }
-    
-    private func search(start: Int, end: Int, path: [Int]) {
-        for (index, value) in matrix[start].enumerated() {
-            if !path.contains(index) && value != 0 {
-                if index != end {
-                    search(start: index, end: end, path: path + [start]);
-                } else {
-                    paths.append(path + [start, index]);
-                }
-            }
-        }
-    }
-}
-
 // MARK: Model in Model-View-Controller Pattern
 final class Model {
     
@@ -190,8 +113,8 @@ final class Model {
         edges.forEach({
             
             for value in Array($0) {
-                let row = Int(value.key) ?? 0
-                let column = Int(value.value) ?? 0
+                let row = Int(value.key)!
+                let column = Int(value.value)!
                 
                 matrix[row][column] = 1
                 matrix[column][row] = 1
