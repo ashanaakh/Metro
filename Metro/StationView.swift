@@ -15,13 +15,13 @@ extension UIColor {
 }
 
 @IBDesignable class StationView: UIStackView {
-    
+
     private var field = (button: UIButton(), fieldIsEmpty: true)
     private var imageView = UIImageView()
     private var fieldTextColor = UIColor.black
-    
+
     var onTap: (() -> Void)!
-    
+
     @IBInspectable var placeholder: String = "" {
         didSet {
             if field.fieldIsEmpty {
@@ -30,43 +30,43 @@ extension UIColor {
             }
         }
     }
-    
+
     @IBInspectable var icon: UIImage = UIImage() {
         didSet {
             imageView.image = icon
         }
     }
-    
+
     @IBInspectable override var spacing: CGFloat {
         didSet {
             super.spacing = spacing
         }
     }
-    
+
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
             field.button.layer.cornerRadius = cornerRadius
         }
     }
-    
+
     @IBInspectable var fieldColor: UIColor = .clear {
         didSet {
              field.button.backgroundColor = fieldColor
         }
     }
-    
+
     @IBInspectable var borderColor: UIColor = .clear {
         didSet {
             field.button.layer.borderColor = borderColor.cgColor
         }
     }
-    
+
     @IBInspectable var borderWidth: CGFloat = 0 {
         didSet {
             field.button.layer.borderWidth = borderWidth
         }
     }
-    
+
     @IBInspectable var textColor: UIColor {
         set {
             fieldTextColor = newValue
@@ -78,7 +78,7 @@ extension UIColor {
             return fieldTextColor
         }
     }
-    
+
     @IBInspectable var fontSize: CGFloat {
         set {
             field.button.titleLabel!.font =
@@ -88,7 +88,7 @@ extension UIColor {
             return field.button.titleLabel!.font.pointSize
         }
     }
-    
+
     @IBInspectable var text: String {
         set {
             if newValue == "" {
@@ -107,19 +107,19 @@ extension UIColor {
     }
 
     //MARK: Initialization
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    
+
     required init(coder: NSCoder) {
         super.init(coder: coder)
         setup()
     }
-    
+
     //MARK: Private Methods
-    
+
     private func setup() {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
@@ -127,7 +127,7 @@ extension UIColor {
         img.widthAnchor.constraint(equalToConstant: 40).isActive = true
         imageView = img;
         addArrangedSubview(img)
-        
+
         let button = UIButton()
         button.backgroundColor = .lightGray
         button.addTarget(self, action: #selector(fieldTapped), for: .touchUpInside)
@@ -135,27 +135,27 @@ extension UIColor {
         field.button = button
         addArrangedSubview(button)
     }
-    
+
     // MARK: Actions
-    
+
     func fieldTapped() {
         onTap()
     }
-    
+
     func hideIcon() {
         imageView.isHidden = true
     }
-    
+
     func showIcon() {
         imageView.isHidden = false
     }
-    
+
     func clear() {
         text = ""
         borderWidth = 0
         hideIcon()
     }
-    
+
     func set(text: String) {
         self.text = text;
         borderWidth = 3

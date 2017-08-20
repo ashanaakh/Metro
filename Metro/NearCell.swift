@@ -9,11 +9,11 @@
 import UIKit
 
 class NearCell: UITableViewCell {
-    
+
     @IBOutlet weak var icon: UIView!
     @IBOutlet weak var stationName: UILabel!
     @IBOutlet weak var distanceInKm: UILabel!
-    
+
     func set(name: String, distance: Double) {
         distanceInKm.text = String(round(distance * 100) / 100) + " km"
         stationName.text = name
@@ -22,7 +22,7 @@ class NearCell: UITableViewCell {
         icon.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
         icon.flash()
     }
-    
+
     func backgroundColorGradient(colors: [UIColor]) {
         let gradient = CAGradientLayer()
         gradient.frame.size = frame.size

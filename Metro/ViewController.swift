@@ -25,7 +25,7 @@ extension UIColor {
             return #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
         }
     }
-    
+
     struct FlashAnimation {
         static var start: UIColor {
             return #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
@@ -46,22 +46,22 @@ extension UIView {
 }
 
 class ViewController: UIViewController {
-    
+
     @IBOutlet weak var from: StationView!
     @IBOutlet weak var to: StationView!
     @IBOutlet weak var goButton: CircleButton!
-    
+
     var model: Model!
     var language = Language.English
     var onFocus: ViewOnFocus = .from
-    
+
     var canUpdateGo: Bool {
         let isValid1 = model.isValidStation(station: from.text)
         let isValid2 = model.isValidStation(station: to.text)
         let notEqual = to.text != from.text
         return isValid1 && isValid2 && notEqual
     }
-    
+
     private func languageSetup() {
         let defaults = UserDefaults.standard
         if let lang = defaults.object(forKey: "Language") as? Int {
@@ -71,29 +71,29 @@ class ViewController: UIViewController {
             model = Model(language: language)
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //Language
         languageSetup()
-        
+
         // Hide Icons
         to.hideIcon()
         from.hideIcon()
-        
+
         // Actions
         to.onTap = {
             self.onFocus = .to
             self.performSegue(withIdentifier: "choose", sender: self)
         }
-        
+
         from.onTap = {
             self.onFocus = .from
             self.performSegue(withIdentifier: "choose", sender: self)
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier! {
         case "choose":
@@ -106,7 +106,7 @@ class ViewController: UIViewController {
         default: break
         }
     }
-    
+
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if (identifier == "results") { goButton.update(x: canUpdateGo) }
         return !(identifier == "results") || canUpdateGo
@@ -114,11 +114,11 @@ class ViewController: UIViewController {
 }
 
 extension ViewController : ChooseStationControllerDelegate {
-    
+
     var stations: [Station] {
         return model.stations
     }
-    
+
     func set(station: Station) {
         var view: StationView;
         switch onFocus {
@@ -134,17 +134,17 @@ extension ViewController : ChooseStationControllerDelegate {
 
 extension ViewController: SettingDelegate {
     func set(language: Language) {
-        
+
         guard language != self.language else {
             return
         }
-        
+
         self.language = language
         model.changeLanguage(for: language)
 
         from.clear()
-        to.clear()	
-        
+        to.clear()
+
         // Language
         switch language {
         case .English:

@@ -15,19 +15,19 @@ import UIKit
             layer.cornerRadius = cornerRadius
         }
     }
-    
+
     @IBInspectable var borderWidth: CGFloat = 0 {
         didSet {
             layer.borderWidth = borderWidth
         }
     }
-    
+
     @IBInspectable var borderColor: UIColor = UIColor.clear {
         didSet {
             layer.borderColor = borderColor.cgColor
         }
     }
-    
+
     func update(x: Bool) {
         guard x else {
             backgroundColor = UIColor.Button.disable
@@ -36,7 +36,7 @@ import UIKit
         }
         change(color: UIColor.Button.enable)
     }
-    
+
     func shake() {
         let animation = CAKeyframeAnimation(keyPath: "position.x")
         animation.isAdditive = true
@@ -45,7 +45,7 @@ import UIKit
         animation.values = [-15.0, 15.0, -13.0, 13.0, -8.0, 8.0, 0.0]
         layer.add(animation, forKey: "shake")
     }
-    
+
     func change(color: UIColor, delay: Double = 0.2){
         UIView.animate(withDuration: 0.75, delay: delay, animations: {
             self.backgroundColor = color

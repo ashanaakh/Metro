@@ -12,7 +12,7 @@ class StationCell: UITableViewCell {
 
     @IBOutlet weak var lineIcon: UIImageView!
     @IBOutlet weak var stationName: UILabel!
-    
+
     func set(lineIcon: String, stationName: String) {
         self.lineIcon.image = UIImage(named: String(lineIcon.characters.first!))
         self.stationName.text = stationName
