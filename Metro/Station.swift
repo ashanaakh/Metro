@@ -17,7 +17,7 @@ final public class Station {
     let subwayLine: LocalizedString
     let subwayStation: LocalizedString
     
-    public var station : String {
+    public var name : String {
         switch language {
         case .English: return subwayStation.ENG
         case .Ukrainian: return subwayStation.UA

@@ -53,7 +53,7 @@ class ChooseStationController: UITableViewController{
         let lines = Set(delegate.stations.flatMap({ $0.line })).sorted()
         
         array = lines.map({ (line) -> (line: String, stations: [String]) in
-            let s = delegate.stations.filter({ $0.line == line }).flatMap({ $0.station })
+            let s = delegate.stations.filter({ $0.line == line }).flatMap({ $0.name })
             return (line, stations: s)
         })
         filteredArray = array
@@ -150,7 +150,7 @@ class ChooseStationController: UITableViewController{
             let arrayInSection = filteredArray[indexPath.section]
             stationName = arrayInSection.stations[indexPath.row]
         }
-        let station = delegate.stations.first(where: { stationName == $0.station })!
+        let station = delegate.stations.first(where: { stationName == $0.name })!
         delegate.set(station: station)
         navigationController?.popViewController(animated: true)
     }
@@ -210,7 +210,7 @@ extension ChooseStationController : CLLocationManagerDelegate {
         }
         
         let near = delegate.stations.map{
-            ($0.station, dist($0.coords))
+            ($0.name, dist($0.coords))
             }.sorted(by: { $0.0.1 < $0.1.1 })
         nearStations = Array(near.map{($0.0, $0.1)}[0...2])
         tableView.reloadData()

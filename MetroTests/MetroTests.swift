@@ -27,7 +27,7 @@ class StationTest: XCTestCase {
         XCTAssertEqual(station.coords, loc)
         XCTAssertEqual(station.language, .English)
         XCTAssertEqual(station.line, "Sviatoshynsko-Brovarska")
-        XCTAssertEqual(station.station, "Akademmistechko")
+        XCTAssertEqual(station.name, "Akademmistechko")
         
         XCTAssertTrue(station == "Akademmistechko")
         XCTAssertTrue("Академгородок" == station)
@@ -61,7 +61,7 @@ class ModelTest: XCTestCase {
         XCTAssertTrue(model.language == .English)
         XCTAssertTrue(model.stations[0].language  == .English)
         XCTAssertTrue(model.stations[0].line == "1. Sviatoshynsko-Brovarska")
-        XCTAssertTrue(model.stations[0].station == "Akademmistechko")
+        XCTAssertTrue(model.stations[0].name == "Akademmistechko")
         
     }
 }
