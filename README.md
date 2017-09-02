@@ -1,4 +1,6 @@
-[![Codacy Badge][1]][2]
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0ec563f7470f489da027468058116a1b)](https://www.codacy.com/app/ashanaakh/metro)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+![License](https://img.shields.io/badge/swift-3.1-yellow.svg)
 
 # Application for MacPaw Internship
 
